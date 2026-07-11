@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for Carne Compass. Tailwind v4 generates utilities
+  directly from these CSS variables (e.g. --color-azure => bg-azure,
+  text-azure, border-azure) — this file is the single source of truth,
+  there is no tailwind.config.js.
+*/
+@theme {
+  --color-void: #0a0b0d;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-hairline: rgba(255, 255, 255, 0.09);
+  --color-ink: #edeff3;
+  --color-muted: #8a8f9c;
+  --color-faint: #55596a;
+
+  /* Restrained institutional blue — interactive/active-state emphasis. */
+  --color-azure: #4e76d1;
+  --color-azure-dim: #3a5aa3;
+
+  /* Used exactly once: the Recommendation card border — the one place
+     the eye should land last. */
+  --color-violet: #7c74d8;
+
+  /* Status semantics for AML/KYC/SLA states — functional, not decorative. */
+  --color-status-clear: #4f9d74;
+  --color-status-pending: #c99a45;
+  --color-status-risk: #c15a4f;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-void);
+  }
+
+  body {
+    @apply bg-void text-ink font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(78, 118, 209, 0.35);
+    color: #edeff3;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-azure);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  /* Faint instrument-panel grid used as the page background. Replaces
+     a separate GradientBackground component — it's one declaration,
+     not worth its own file. */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+
+  .bg-vignette {
+    background: radial-gradient(
+      ellipse 90% 70% at 50% 30%,
+      transparent 0%,
+      rgba(10, 11, 13, 0.7) 82%,
+      #0a0b0d 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,46 @@
+feature,importance
+client_segment_High Profile,0.3519212199493618
+strategic_client,0.303463601711993
+missing_documents,0.056475269110202835
+num_sub_funds,0.04869290077751584
+blocker_count,0.032915296417513236
+num_share_classes,0.03264189275128935
+num_delegates,0.022938055230314863
+num_jurisdictions,0.019924431594922843
+risk_rating_High,0.014542559744270002
+aml_status_Completed,0.012969075403219213
+kyc_status_Completed,0.011167355034349895
+regulatory_review_required,0.007906283004997546
+sla_days,0.006889823190708424
+risk_rating_Low,0.006120440333621747
+aml_status_Blocked,0.006086238047779029
+kyc_status_Failed,0.005063039298520266
+aml_status_Pending,0.004381827409417848
+client_priority_High,0.0038213640101922414
+client_priority_Normal,0.0034015846417567662
+latest_blocker_type_nan,0.0031218739201838326
+aml_status_In Progress,0.003082383818026229
+fund_type_Hedge Fund,0.0028773452973996864
+fund_type_Private Equity,0.002857754141248118
+fund_type_Real Estate,0.0028425342676926917
+kyc_status_Pending,0.0027462632398011595
+fund_type_UCITS,0.0026508673974610783
+risk_rating_Medium,0.0026500385218104034
+fund_type_AIF,0.002577123975799523
+fund_type_Money Market,0.002530254979721633
+domicile_Cayman Islands,0.0023302623925545917
+kyc_status_In Progress,0.0022433473977941498
+domicile_UK,0.002027992392343496
+domicile_Luxembourg,0.0019771027043822293
+domicile_Malta,0.001842527314886311
+client_priority_Critical,0.0017746390603396907
+domicile_Ireland,0.0015308158483354434
+latest_blocker_type_AML Delay,0.0012764508596722333
+latest_blocker_type_Missing Documents,0.0010378066232898432
+client_segment_Institutional,0.0009349506532266327
+client_priority_Low,0.0008735410437282559
+latest_blocker_type_KYC Issue,0.0008620780267309635
+client_segment_Small / Emerging,0.0008085504425415315
+latest_blocker_type_Regulatory Review,0.0006995727323634161
+latest_blocker_type_Client Dependency,0.0002974812635177065
+latest_blocker_type_Analyst Unavailable,0.00022418402320214395

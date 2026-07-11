@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #05060a;
+  color: #f5f6fa;
+  font-family: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Carne Compass design utilities */
+
+.bg-void {
+  background-color: #05060a;
+}
+
+.bg-surface {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.bg-surface-strong {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.text-ink {
+  color: #f5f6fa;
+}
+
+.text-muted {
+  color: #8b93a7;
+}
+
+.text-faint {
+  color: #565c6e;
+}
+
+.text-azure {
+  color: #6c8eff;
+}
+
+.text-violet {
+  color: #b98cff;
+}
+
+.border-hairline {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #6c8eff 0%, #b98cff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
