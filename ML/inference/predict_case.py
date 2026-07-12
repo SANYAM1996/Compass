@@ -123,16 +123,58 @@ def predict_case(case: dict[str, Any]) -> dict[str, Any]:
         recommendations
     )
 
-    top_recommendation = (
-        recommendation_records[0]
-        if recommendation_records
-        else None
-    )
+
+
+    eligible_records = [
+    analyst
+    for analyst in recommendation_records
+    if analyst["eligibility_status"]
+    == "Eligible"
+]
+
+    recommended_analyst = (
+    eligible_records[0]
+    if eligible_records
+    else None
+)
+
+    allocation_status = (
+    "Recommendation Available"
+    if recommended_analyst
+    else "Manager Review Required"
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return {
-        "predicted_complexity": predicted_complexity,
-        "prediction_confidence": round(confidence, 2),
-        "estimated_effort": effort_estimate,
-        "recommended_analyst": top_recommendation,
-        "top_recommendations": recommendation_records,
-    }
+        "predicted_complexity":
+            predicted_complexity,
+        "prediction_confidence":
+            round(confidence, 2),
+        "estimated_effort":
+            effort_estimate,
+        "allocation_status":
+            allocation_status,
+        "recommended_analyst":
+            recommended_analyst,
+        "top_recommendations":
+            recommendation_records,
+}
