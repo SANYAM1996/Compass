@@ -430,6 +430,120 @@ export default function AnalysisPage() {
 function ResultsPanel({ result }) {
   const recommendation = result.recommended_analyst;
 
+
+if (!recommendation) {
+        return (
+    <div className="space-y-5">
+      <div className="grid gap-4 sm:grid-cols-3">
+        <MetricCard
+          label="Complexity"
+          value={result.predicted_complexity}
+          detail={`${result.prediction_confidence}% confidence`}
+        />
+
+        <MetricCard
+          label="Estimated effort"
+          value={result.estimated_effort.estimated_effort_hours}
+          detail="person-hours"
+        />
+
+        <MetricCard
+          label="Effort band"
+          value={result.estimated_effort.effort_band}
+          detail={`${result.estimated_effort.estimated_effort_days} analyst-days`}
+        />
+      </div>
+
+      <div className="rounded-2xl border border-amber-400/30 bg-amber-400/[0.06] p-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-amber-300">
+          Manager review required
+        </p>
+
+        <h2 className="mt-4 text-2xl font-semibold">
+          No fully eligible analyst found
+        </h2>
+
+        <p className="mt-3 text-slate-400">
+          The candidates below are fallback options and require manual approval.
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+        <h3 className="text-lg font-medium">
+          Ranked fallback candidates
+        </h3>
+
+        <div className="mt-4 space-y-3">
+          {result.top_recommendations.map((analyst, index) => (
+            <div
+              key={analyst.analyst_id}
+              className="grid gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:grid-cols-[40px_1fr_auto]"
+            >
+              <div className="text-slate-500">
+                #{index + 1}
+              </div>
+
+              <div>
+                <p className="font-medium">
+                  {analyst.analyst_name}
+                </p>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  {analyst.seniority} · {analyst.team}
+                </p>
+
+                {analyst.missing_mandatory_skills && (
+                  <p className="mt-2 text-xs text-amber-300">
+                    Missing: {analyst.missing_mandatory_skills}
+                  </p>
+                )}
+              </div>
+
+              <div className="text-right">
+                <p className="text-xl font-semibold">
+                  {analyst.suitability_score}%
+                </p>
+
+                <p className="text-xs text-slate-500">
+                  Fallback
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="space-y-5">
       <div className="grid gap-4 sm:grid-cols-3">

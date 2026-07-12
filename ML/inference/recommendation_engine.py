@@ -132,25 +132,37 @@ def calculate_skill_score(
     )
 
 
+
+
+
+
 def calculate_workload_score(
     workload_pct: float,
 ) -> float:
-    if workload_pct <= 50:
-        return 25.0
+    if workload_pct <= 45:
+        return 30.0
 
-    if workload_pct <= 65:
-        return 22.0
+    if workload_pct <= 60:
+        return 26.0
 
-    if workload_pct <= 75:
-        return 17.0
+    if workload_pct <= 70:
+        return 21.0
 
-    if workload_pct <= 85:
-        return 10.0
+    if workload_pct <= 80:
+        return 14.0
 
-    if workload_pct <= 92:
-        return 4.0
+    if workload_pct <= 90:
+        return 6.0
 
     return 0.0
+
+
+
+
+
+
+
+
 
 
 def calculate_experience_score(
@@ -166,16 +178,23 @@ def calculate_experience_score(
         6,
     )
 
+
+
     score = (
-        experience_years
-        / target_years
-        * 15
-    )
+    experience_years
+    / target_years
+    * 12
+)
 
     return round(
-        min(score, 15),
+        min(score, 12),
         1,
-    )
+)
+
+
+
+
+
 
 
 def calculate_availability_score(
@@ -190,13 +209,25 @@ def calculate_availability_score(
     return 0.0
 
 
+
+
+
+
+
 def calculate_quality_score(
     avg_quality: float,
 ) -> float:
     return round(
-        min(avg_quality / 5 * 10, 10),
+        min(avg_quality / 5 * 8, 8),
         1,
     )
+
+
+
+
+
+
+
 
 
 def calculate_seniority_score(
@@ -392,6 +423,15 @@ def recommend_analysts(
             + seniority_score,
             1,
         )
+        if not is_eligible:
+            total_score = min(total_score, 65.0)
+
+
+
+
+
+
+
 
         reasons = generate_reasons(
             analyst=analyst,
